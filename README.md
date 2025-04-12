@@ -32,7 +32,7 @@ Designed to speed up common attack workflows with copy-paste commands. Configure
 
 # Easy installation
 Simply copy-paste to your Linux terminal
-> wget https://github.com/Blind2k/R2-CheatSheet/raw/refs/heads/main/app-data/installation-scripts/install_r2-cs.bash && sudo bash install_r2-cs.bash && rm install_r2-cs.bash && source ~/.bashrc
+> wget https://github.com/Blind2k/R2-CheatSheet/raw/refs/heads/main/app_data/installation-scripts/install_r2-cs.bash && sudo bash install_r2-cs.bash && rm install_r2-cs.bash && source ~/.bashrc
 
 ### Steps 
 `1.` Choose environment: OS, Service, or Protocol-specific  
