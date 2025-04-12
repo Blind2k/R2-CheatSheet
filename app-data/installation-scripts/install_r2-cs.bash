@@ -35,7 +35,7 @@ function install_r2(){
     python3 -m venv r2cs_env
 
     echo "[*] Adding shortcut to .bashrc..."
-    echo "alias r2cs=\"source $USER_PWD/r2cs_env/bin/activate && python $USER_PWD/r2cs.py\"" >> "/home/$(logname)/.bashrc"
+    echo "alias r2cs=\"source $(pwd)/r2cs_env/bin/activate && python $(pwd)/r2cs.py\"" >> "/home/$(logname)/.bashrc"
 
     echo "[+] Install complete. You can now type 'source ~/.bashrc' or open a new terminal."
   fi
