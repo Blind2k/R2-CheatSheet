@@ -39,7 +39,7 @@ function install_r2(){
       {
         echo ""
         echo "# Alias for R2-Cheat Sheet"
-        echo "alias r2cs=\"source $SCRIPT_DIR/r2cs_env/bin/activate && python $SCRIPT_DIR/r2cs.py\""
+        echo "alias r2cs=\"cd $SCRIPT_DIR; source /r2cs_env/bin/activate && python $SCRIPT_DIR/r2cs.py\""
       } >> "$BASHRC"
       echo "[+] Alias 'r2cs' added to $BASHRC"
     else
