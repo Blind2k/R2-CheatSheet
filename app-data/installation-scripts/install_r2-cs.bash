@@ -22,12 +22,9 @@ function install_r2(){
 
   else
     echo "[+] Python version OK: $PYTHON_VERSION"
-    ORIGINAL_USER=${SUDO_USER:-$(logname)};
-    USER_HOME=$(eval echo "~$ORIGINAL_USER")
-    USER_PWD=$(sudo -u "$ORIGINAL_USER" pwd)
 
     echo "[*] Cloning repository..."
-    git clone https://github.com/Blind2k/R2-CheatSheet.git "$USER_HOME/R2-CheatSheet"
+    git clone https://github.com/Blind2k/R2-CheatSheet.git
 
     cd "$USER_HOME/R2-CheatSheet"
 
@@ -35,9 +32,12 @@ function install_r2(){
     python3 -m venv r2cs_env
 
     echo "[*] Adding shortcut to .bashrc..."
+    echo "" >> "/home/$(logname)/.bashrc"
+    echo "# Alias for R2-Cheat Sheet" >> "/home/$(logname)/.bashrc"
     echo "alias r2cs=\"source $(pwd)/r2cs_env/bin/activate && python $(pwd)/r2cs.py\"" >> "/home/$(logname)/.bashrc"
 
-    echo "[+] Install complete. You can now type 'source ~/.bashrc' or open a new terminal."
+    echo "[+] Install complete!."
+    echo "Open terminator and type \"r2cs\" to run the tool!"
   fi
 }
 
