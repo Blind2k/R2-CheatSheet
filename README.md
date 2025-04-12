@@ -22,13 +22,17 @@ Designed to speed up common attack workflows with copy-paste commands. Configure
 **Modern Python:** Designed for Python 3.10+
 
 ## Example
-> python3 r2-cheat_sheet.py  
+> python3 r2cs.py  
 > set rhost 192.168.1.50; se rp 9999  
 > 2; 2  
 
 ###### Output
 > Netcat: Target  
 > nc 192.168.1.50 9999
+
+# Easy installation
+Simply copy-paste to your Linux terminal
+> wget https://github.com/Blind2k/R2-CheatSheet/raw/refs/heads/main/app-data/installation-scripts/install_r2-cs.bash && sudo bash install_r2-cs.bash && rm install_r2-cs.bash && source ~/.bashrc
 
 ### Steps 
 `1.` Choose environment: OS, Service, or Protocol-specific  
@@ -108,19 +112,20 @@ set rhost 8.8.8.8;set rport 838; set nic eth0; set domain slam.com;set path /hom
 unset rhost; unset rport;unset domain ;unset path ;unset username ;unset password; unset usernames;unset passwords ;unset wordlist ;unset lhost;unset lport
 </pre>
 ## Class Configuration
-| Local Host  | Remote Host |           Description |
-|-------------|:-----------:|----------------------:|
-| lhost       |    rhost    | IP/domain/host |
-| lport       |    rport    | Port (0-65535) |
-| proxy       |      -      | String |
-| aws profile |      -      | String |
-| -           |   domain    | String |
-| -           |    path     | String |
-| -           |  username   | String |
-| -           |  password   | String|
-| -           |  usernames  | Path & not empty File |
-| -           |  passwords  | Path & not empty File |
-| -           |  wordlist   | Path & not empty File |
+| Local Host  | Remote Host |               Description |
+|-------------|:-----------:|--------------------------:|
+| lhost       |    rhost    |            IP/domain/host |
+| lport       |    rport    |            Port (0-65535) |
+| proxy       |      -      |                    String |
+| aws profile |      -      |                    String |
+| NIC         |      -      | String |
+| -           |   domain    |                    String |
+| -           |    path     |                    String |
+| -           |  username   |                    String |
+| -           |  password   |                    String |
+| -           |  usernames  |     Path & not empty File |
+| -           |  passwords  |     Path & not empty File |
+| -           |  wordlist   |     Path & not empty File |
 
 
 ## Future Ideas
