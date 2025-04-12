@@ -17,7 +17,7 @@ Designed to speed up common attack workflows with copy-paste commands. Configure
 ### Advantages
 **Chain Commands:** Run many commands in one line using `;`  
 **Aliases Friendly:** First 2 letters are an alias. `lh` for `lhost`.  
-**Full Personalization:** Add aliases in [english_strings.py](app-data/en/english_strings.py)  
+**Full Personalization:** Add aliases in [english_strings.py](app_data/en/english_strings.py)  
 **Smart Parsing:** Case doesn’t matter — `SEt`, `set`, or `SET` all work  
 **Modern Python:** Designed for Python 3.10+
 

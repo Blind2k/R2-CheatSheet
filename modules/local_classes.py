@@ -15,7 +15,7 @@ class LocalHostConfigurations(BaseValidationHelpers):
         self._lport: str = "$LPORT"
         self._nic: str = "$NIC"
 
-        self._current_json_path: str = "./app-data/commands/main_menu.json"
+        self._current_json_path: str = "./app_data/commands/main_menu.json"
         self._last_json_path: str = ""
         self._current_pwd: str = self.save_current_pwd()
 
@@ -69,7 +69,7 @@ class LocalHostConfigurations(BaseValidationHelpers):
 
     @current_json_path.setter
     def current_json_path(self, value: str) -> None:
-        self._current_json_path = self._validate_file(value, "./app-data/commands/main_menu.json")
+        self._current_json_path = self._validate_file(value, "./app_data/commands/main_menu.json")
 
     @property
     def last_json_path(self) -> str:

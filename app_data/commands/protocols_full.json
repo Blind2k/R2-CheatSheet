@@ -1,0 +1,172 @@
+{
+  "1": {
+    "name": "Day Time (13)",
+    "standard_port": [13],
+    "data": {
+      "TBD": "To Be Developed"
+    }
+  },
+  "2": {
+    "name": "FTP (20, 21)",
+    "standard_port": [20, 21],
+    "data": {
+      "FTP: Anonymous Login #1": "ftp $RHOST",
+      "FTP: Anonymous Login #2": "ftp anonymous@$RHOST",
+      "FTP: Anonymous Login #3": "ftp -nv $RHOST",
+      "Nmap: FTP Enumeration": "nmap --min-rate 9327 -Pn  -p 21 --script ftp-anon,ftp-bounce,ftp-syst $RHOST",
+      "Lftp: Login": "lftp -u '$USERNAME,$PASSWORD' $RHOST",
+      "Lftp: Anonymous Login #1": "lftp -u anonymous,anonymous $RHOST",
+      "Hydra: FTP Brute-Force Password": "hydra -l '$USERNAME' -P $PASSWORDS ftp://$RHOST",
+      "Curl: FTP File Fetch": "curl ftp://$RHOST/filename.txt",
+      "Netcat: FTP test": "nc -nv $RHOST 21",
+      "Filezilla (GUI)": "filezilla $RHOST"
+    }
+  },
+  "3": {
+    "name": "SSH (22)",
+    "standard_port": [22],
+    "data": {
+      "SSH: Login": "ssh $USERNAME@$RHOST",
+      "Nmap: SSH Enumeration": "nmap --min-rate 9327 -Pn -p 22 --script ssh2-enum-algos,ssh-hostkey,ssh-auth-methods $RHOST",
+      "Hydra: Brute-Force Password": "hydra -l '$USERNAME' -P $PASSWORDS ssh://$RHOST",
+      "Patator: SSH Key Brute-Force": "patator ssh_login host=$RHOST 'user=$USERNAME' password=FILE0 0=$PASSWORDS"
+    }
+  },
+  "4": {
+    "name": "Telnet (23)",
+    "standard_port": [23],
+    "data": {
+      "Telnet: Connect": "telnet $RHOST",
+      "Netcat: Connect" : "",
+      "Nmap Telnet scripts": "nmap --min-rate 9327 -Pn -p 23 --script telnet-encryption,telnet-ntlm-info $RHOST",
+      "Hydra Telnet": "hydra -l '$USERNAME' -P $PASSWORDS telnet://$RHOST"
+    }
+  },
+  "5": {
+    "name": "SMTP (25)",
+    "standard_port": [25],
+    "data": {
+      "Banner grab with Netcat": "nc -nv $RHOST 25",
+      "Nmap SMTP enum": "nmap --min-rate 9327 -Pn -p 25 --script smtp-data,smtp-enum-users $RHOST",
+      "SMTP-user-enum": "smtp-user-enum -M VRFY -U $USERNAMES -t $RHOST"
+    }
+  },
+  "6": {
+    "name": "DNS (53)",
+    "standard_port": [53],
+    "data": {
+      "Dig A record": "dig @$RHOST example.com A",
+      "Zone transfer test": "dig axfr example.com @$RHOST",
+      "DNSRecon": "dnsrecon -d $RHOST -t axfr",
+      "Fierce": "fierce -dns $RHOST",
+      "Nmap: DNS Brute-Force": "nmap --min-rate 9327 -Pn --script dns-brute -Pn -n -p 53 $RHOST"
+    }
+  },
+  "7": {
+    "name": "DHCP (67, 68)",
+    "standard_port": [67, 68],
+    "data": {
+      "TBD": "To Be Developed"
+    }
+  },
+  "8": {
+    "name": "POP3 (110)",
+    "standard_port": [110],
+    "data": {
+      "TBD": "To Be Developed"
+    }
+  },
+  "9": {
+    "name": "IMAP (143)",
+    "standard_port": [143],
+    "data": {
+      "TBD": "To Be Developed"
+    }
+  },
+  "10": {
+    "name": "SMB (135, 139, 445)",
+    "standard_port": [135, 139, 445],
+    "data": {
+      "SMBClient": "smbclient //$RHOST/$PATH -c 'put file.txt'",
+      "SMBClient: One line login": "smbclient -L //$RHOST -U '$USERNAME%$PASSWORD'",
+      "SMBClient: Anonymous user #1": "smbclient -L //$RHOST -U \"\"",
+      "SMBClient: Anonymous user #2": "smbclient -L //$RHOST -U anonymous",
+      "SMBClient: SMB2 Guest without password": "smbclient -L //$RHOST -U Guest -N",
+      "SMBClient: Windows SMB2 File Upload #1": "smbclient -m smb2 '//$RHOST/$PATH/' -U '$DOMAIN/$USERNAME%$PASSWORD' -c 'cd \"FOLDER 1/FOLDER 2/\" ; put FILE1.xlsx'",
+      "SMBClient: Windows SMB2 File Upload #2": "smbmap -H $RHOST -u '$USERNAME' -p '$PASSWORD' --upload local-filename share\\\\remote-filename",
+      "SMBClient: Download Everything": "smbclient //10.10.10.100/Replication -N -c 'recurse; prompt; mget *'",
+      "List shares": "rsync --list-only  $USERNAME@$RHOST::",
+      "Nmap: Enumerate shares": "nmap --min-rate 9327 -Pn -p 445 --script smb-enum-shares $RHOST",
+      "Nmap: Enumerate users": "nmap --min-rate 9327 -Pn -p 445 --script smb-enum-users $RHOST",
+      "SMBMap: Anonymous Enum": "smbmap -H $RHOST -u anonymous",
+      "RPCDump": "rpcdump @$RHOST",
+      "Enum4Linux": "enum4linux -a $RHOST",
+      "CrackMapExec: Shares": "cme smb $RHOST --shares",
+      "CrackMapExec: Users": "cme smb $RHOST --users",
+      "CrackMapExec: Password Spray": "cme smb $RHOST -u '$USERNAME' -p '$PASSWORD'",
+      "Hydra: SMB Brute-Force Password": "hydra -l '$USERNAME' -P $PASSWORDS smb://$RHOST"
+    }
+  },
+  "11": {
+    "name": "SNMP (161)",
+    "standard_port": [161],
+    "data": {
+      "Nmap: SNMP Enumeration": "nmap --min-rate 9327 -Pn -sU -p 161 --script snmp-info $RHOST",
+      "SNMPWalk: Enumerate Public": "snmpwalk -v2c -c public $RHOST",
+      "SNMPCheck: Enumerate Public": "snmpcheck -t $RHOST -c public",
+      "Onesixtyone: Brute-Force Community Strings": "onesixtyone -c $WORDLIST $RHOST"
+    }
+  },
+  "12": {
+    "name": "HTTP (80, 8080)",
+    "standard_port": [80,8080],
+    "data": {
+      "Curl & Null Byte": "curl \"http://$RHOST/$PATH%00\"",
+      "XST": "curl -v -X TRACE http://$RHOST",
+      "Nikto Scan": "nikto -h http://$RHOST",
+      "Gobuster: Wordlist Attack": "gobuster dir -x txt,html,js,php,sql -u http://$RHOST -w $WORDLIST",
+      "Ffuf: Wordlist Attack" : "ffuf -u http://$RHOST/FUZZ -w $WORDLIST",
+      "Nmap: HTTP Enumeration": "nmap --min-rate 9327 -Pn -p 80,443 --script http-enum $RHOST",
+      "WaybackURLs": "waybackurls --unique $RHOST > waybackurls-$RHOST.txt"
+    }
+  },
+  "13": {
+    "name": "HTTPS (443, 8443)",
+    "standard_port": [443, 8443],
+    "data": {
+      "Curl & Null Byte": "curl -ikv \"https://$RHOST/$PATH%00\"",
+      "XST": "curl -ikv -X TRACE https://$RHOST",
+      "Nikto Scan": "nikto -h https://$RHOST",
+      "Gobuster: Wordlist Attack": "gobuster dir -x txt,html,js,php,sql -u https://$RHOST -w $WORDLIST",
+      "Ffuf: Wordlist Attack" : "ffuf -u https://$RHOST/FUZZ -w $WORDLIST",
+      "Nmap: HTTP Enumeration": "nmap --min-rate 9327 -Pn -p 80,443 --script http-enum $RHOST",
+      "WaybackURLs": "waybackurls --unique '$RHOST' > 'waybackurls-$RHOST.txt'"
+    }
+  },
+  "14": {
+    "name": "RDP (3389)",
+    "standard_port": [3389],
+    "data": {
+      "Nmap: RDP Enumeration": "nmap --min-rate 9327 -Pn -p 3389 --script rdp-enum-encryption $RHOST",
+      "xfreerdp: Administrator Login": "xfreerdp /v:$RHOST /u:Administrator",
+      "xfreerdp: User Login": "xfreerdp /v:$RHOST '/u:$USERNAME'",
+      "Ncrack: RDP Brute-Force Credentials": "ncrack -p 3389 -U $USERNAMES -P $PASSWORDS $RHOST"
+    }
+  },
+  "15": {
+    "name": "ARP",
+    "standard_port": [],
+    "data": {
+      "Host Discovery #1": "arp-scan --local -I $NIC",
+      "Host Discovery #2": "nmap -sn $RHOST",
+      "Host Discovery #3": "netdiscover -r $RHOST -i $NIC"
+    }
+  },
+  "16": {
+    "name": "FTPS (445)",
+    "standard_port": [445],
+    "data": {
+      "TBD": "To Be Developed"
+    }
+  }
+}

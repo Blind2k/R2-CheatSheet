@@ -54,7 +54,7 @@ def take_input_from_user():
 
 # Used after returning the last JSONed options
 def actions_to_move_back(lhost: LocalH) -> None:
-    if lhost.current_json_path != "./app-data/commands/main_menu.json":
+    if lhost.current_json_path != "./app_data/commands/main_menu.json":
         lhost.configure("json_path", lhost.last_json_path)
         load_show_menu(lhost.current_json_path)
     else:

