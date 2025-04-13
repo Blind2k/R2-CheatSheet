@@ -32,8 +32,9 @@ Designed to speed up common attack workflows with copy-paste commands. Configure
 
 # Beginners Friendly
 ## Easy installation
-Simply copy-paste to your Linux terminal
-> wget https://github.com/Blind2k/R2-CheatSheet/raw/refs/heads/main/app_data/installation-scripts/install_r2-cs.bash && sudo bash install_r2-cs.bash && rm install_r2-cs.bash && source ~/.bashrc
+Simply copy-paste to your Linux terminal.  
+The script will ensure Python is above 3.10. After that, Install Git and Terminator 
+> curl -L https://github.com/Blind2k/R2-CheatSheet/raw/refs/heads/main/app_data/installation-scripts/install_r2-cs.bash | bash
 
 ## Video instruction
 Watch the video to learn more.
