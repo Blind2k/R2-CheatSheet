@@ -34,7 +34,7 @@ function install_python_environment(){
 }
 
 function validate_python_version(){
-    echo "[*] Checking Python version..."
+  echo "[*] Checking Python version..."
   PYTHON_VERSION=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
   REQUIRED_VERSION="3.10"
 
@@ -43,6 +43,7 @@ function validate_python_version(){
     return 1
   else
     return 0
+  fi
 }
 
 # Check for "r2cs" alias inside .bashrc. If not, create one.
@@ -97,14 +98,14 @@ if [ "$(id -u)" -eq 0 ]; then
   sudo apt-get install -y terminator
   sudo apt-get install -y git
   is_valid=validate_python_version
-  if [[ is_valid -eq 1 ]];
+  if [[ is_valid -eq 1 ]]; then
     install_r2
   else
     echo "[!] Python 3.10 or higher is required. Found: $PYTHON_VERSION"
     echo "[*] Trying to install pyenv"
     install_python_environment
     echo "[*] Trying to install pyenv"
-    if [[ is_valid -eq 1 ]];
+    if [[ is_valid -eq 1 ]]; then
       install_r2
     else
       print "[!] Failed installing Python. Sorry but your python version is too low."
