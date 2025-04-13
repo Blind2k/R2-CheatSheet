@@ -18,7 +18,7 @@ Designed to speed up common attack workflows with copy-paste commands. Configure
 **Chain Commands:** Run many commands in one line using `;`  
 **Aliases Friendly:** First 2 letters are an alias. `lh` for `lhost`.  
 **Full Personalization:** Add aliases in [english_strings.py](app_data/en/english_strings.py)  
-**Smart Parsing:** Case doesn’t matter — `SEt`, `set`, or `SET` all work  
+**Smart Parsing:** Case does not matter — `SEt`, `set`, or `SET` all work  
 **Modern Python:** Designed for Python 3.10+
 
 ## Example
@@ -30,9 +30,14 @@ Designed to speed up common attack workflows with copy-paste commands. Configure
 > Netcat: Target  
 > nc 192.168.1.50 9999
 
-# Easy installation
+# Beginners Friendly
+## Easy installation
 Simply copy-paste to your Linux terminal
 > wget https://github.com/Blind2k/R2-CheatSheet/raw/refs/heads/main/app_data/installation-scripts/install_r2-cs.bash && sudo bash install_r2-cs.bash && rm install_r2-cs.bash && source ~/.bashrc
+
+## Video instruction
+Watch thevideo to learn how to use this tool.
+ [![this video](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FB3TANDwD_eo%3Fsi%3DRlQJCayDaLCZ52v0)](https://youtu.be/B3TANDwD_eo?si=RlQJCayDaLCZ52v0)
 
 ### Steps 
 `1.` Choose environment: OS, Service, or Protocol-specific  
@@ -44,7 +49,7 @@ Simply copy-paste to your Linux terminal
 | Category     | Subcategories                                                                                                                                                                                                       |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Linux**    | 1. Chained Commands  <br> 2. General Commands  <br> 3. Privilege Escalation                                                                                                                                         |
-| **Windows**  | 1. PowerShell Chained Commands  <br> 2. General Commands  <br> 3. Privilege Escalation  <br> 4. Command Prompt  <br> 5. Active Directory  <br> 6. Defence Services                                                        |
+| **Windows**  | 1. PowerShell Chained Commands  <br> 2. General Commands  <br> 3. Privilege Escalation  <br> 4. Command Prompt  <br> 5. Active Directory  <br> 6. Defence Services                                                  |
 | **Protocols**| 1. Day Time  <br> 2. FTP  <br> 3. SSH  <br> 4. Telnet  <br> 5. SMTP  <br> 6. DNS  <br> 7. DHCP  <br> 8. POP3  <br> 9. IMAP  <br> 10. SMB  <br> 11. SNMP  <br> 12. HTTP  <br> 13. HTTPS  <br> 14. RDP  <br> 15. FTPS |
 | **Databases**| 1. MySQL  <br> 2. PostgreSQL  <br> 3. GraphQL                                                                                                                                                                       |
 | **AWS**      | 1. S3  <br> 2. IAM  <br> 3. Lambda  <br> 4. API Gateway  <br> 5. EC2  <br> 6. SSM  <br> 7. Configurations  <br> 8. Misc                                                                                             |
@@ -105,27 +110,27 @@ Furthermore, I will be super happy for ideas, offers, or just pictures of dogs..
 ## Test strings
 <pre>
 # Set Test
-set rhost 8.8.8.8;set rport 838; set nic eth0; set domain slam.com;set path /home/user/you/; set username SLAME@!#@!;set password SLAMDUNK_PASSWORD;set usernames app_data/wordlists/test_wordlist.txt;set passwords app_data/wordlists/test_wordlist.txt;set wordlist app_data/wordlists/test_wordlist.txt;set lhost 1.1.1.1;set lport 3838
+set rhost 8.8.8.8;set rport 838; set nic eth0; set domain slam.com;set path /home/user/you/; set username SLAME@!#@!;set password SLAMDUNK_PASSWORD;set usernames app_data/wordlists/wordlist_test.txt;set passwords app_data/wordlists/wordlist_test.txt;set wordlist app_data/wordlists/wordlist_test.txt;set lhost 1.1.1.1;set lport 3838
 </pre>
 <pre>
 # Unset Test
 unset rhost; unset rport;unset domain ;unset path ;unset username ;unset password; unset usernames;unset passwords ;unset wordlist ;unset lhost;unset lport
 </pre>
 ## Class Configuration
-| Local Host  | Remote Host |               Description |
-|-------------|:-----------:|--------------------------:|
-| lhost       |    rhost    |            IP/domain/host |
-| lport       |    rport    |            Port (0-65535) |
-| proxy       |      -      |                    String |
-| aws profile |      -      |                    String |
-| NIC         |      -      | String |
-| -           |   domain    |                    String |
-| -           |    path     |                    String |
-| -           |  username   |                    String |
-| -           |  password   |                    String |
-| -           |  usernames  |     Path & not empty File |
-| -           |  passwords  |     Path & not empty File |
-| -           |  wordlist   |     Path & not empty File |
+| Local Host  | Remote Host |           Description |
+|-------------|:-----------:|----------------------:|
+| lhost       |    rhost    |        IP/domain/host |
+| lport       |    rport    |        Port (0-65535) |
+| proxy       |      -      |                String |
+| aws profile |      -      |                String |
+| NIC         |      -      |                String |
+| -           |   domain    |                String |
+| -           |    path     |                String |
+| -           |  username   |                String |
+| -           |  password   |                String |
+| -           |  usernames  | Path & not empty File |
+| -           |  passwords  | Path & not empty File |
+| -           |  wordlist   | Path & not empty File |
 
 
 ## Future Ideas

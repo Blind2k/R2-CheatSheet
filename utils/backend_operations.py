@@ -30,3 +30,11 @@ def configure_host_object(key: str, value: str, lhost_configuration: object, rho
         print(f"{key}={value}")
     else:
         print(f"Unknown configuration key: {key}")
+
+
+def is_integer(string: str) -> bool:
+    try:
+        int(string)
+        return True
+    except ValueError:
+        return False

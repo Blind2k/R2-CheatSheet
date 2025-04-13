@@ -1,8 +1,10 @@
 # Navigation Keywords
-exit_script_keywords = {"quit", "qu", "exit", "bye", "close"}
-ask_help_keywords = {"help", "he", "?", "ah?"}
-print_menu_keywords = {"menu", "me", "m"}
-back_one_keywords = {"back", "ba", "up", "main"}
+navigation_keywords = {
+    "quit": {"quit", "qu", "exit", "bye", "close"},
+    "help": {"help", "he", "?", "ah?"},
+    "menu": {"menu", "me", "m"},
+    "back": {"back", "ba", "up", "main"}
+}
 
 session_configuration_commands = {
     "get": {"get", "ge"},
@@ -56,6 +58,8 @@ full_manual_string = """
     lhost, lh             Local IP/domain to listen on
     lport, lp             Local port number
     proxy, pr             Optional proxy (http://ip:port)
+    nic                   Change Network Interface Card
+    awsuser, awsu         AWS Profile user name
 
   Target Options:
     rhost,  rh            Target host IP or domain

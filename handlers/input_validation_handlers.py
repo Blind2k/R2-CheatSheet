@@ -1,4 +1,4 @@
-# This file holds any type of function that should validate or santize information
+# This file holds any type of function that should validate or sanitize information
 # All functions should get an ninput. if the input is valid, it's returning.
 # If not, a print will pop to start a fresh round
 # TODO: add IPv6 and Proxy validation
@@ -13,6 +13,11 @@ def validate_ipv4(ip_as_string: str) -> bool:
 
 
 def validate_ipv6():
+    pass
+
+
+def validate_proxy():
+    # Protocol, subdomain="", domain, TLD
     pass
 
 
@@ -31,9 +36,9 @@ def validate_ip_or_domain(input_string: str) -> bool:
     return False
 
 
-# TODO: Yeah. this is not really sanityzing
+# TODO: Yeah. this is not really sanitizing duo to the password and username variables
 def sanitize_strings(income_string: str) -> bool:
-    if not any(char in income_string for char in "|&`"):
+    if not any(char in income_string for char in ""):
         return True
     else:
         return False

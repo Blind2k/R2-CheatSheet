@@ -124,4 +124,3 @@ class RemoteHostConfigurations(BaseValidationHelpers):
     @wordlist.setter
     def wordlist(self, value: str) -> None:
         self._wordlist = self._validate_file(value, "$WORDLIST")
-

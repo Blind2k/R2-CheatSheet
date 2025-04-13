@@ -6,7 +6,7 @@ from handlers.navigate_user_by_input import take_user_input_round
 from handlers.additional_communication import load_show_menu
 import os
 
-# Get the directory where r2cs.py lives
+# Get the directory where this file is located
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 # Move to the project root
 os.chdir(SCRIPT_DIR)
@@ -18,7 +18,7 @@ def main() -> None:
     local_host_object = LocalH()
     remote_host_object = RemoteH()
 
-    print("Welcome to the Cheat Sheeter")
+    print("Welcome to the R2-Cheat Sheet")
     load_show_menu(local_host_object.current_json_path)
     while True:
         take_user_input_round(local_host_object, remote_host_object)
@@ -27,4 +27,3 @@ def main() -> None:
 # This is the first line that should be executed.
 if __name__ == "__main__":
     main()
-
