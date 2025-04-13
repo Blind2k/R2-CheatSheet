@@ -36,8 +36,8 @@ Simply copy-paste to your Linux terminal
 > wget https://github.com/Blind2k/R2-CheatSheet/raw/refs/heads/main/app_data/installation-scripts/install_r2-cs.bash && sudo bash install_r2-cs.bash && rm install_r2-cs.bash && source ~/.bashrc
 
 ## Video instruction
-Watch thevideo to learn how to use this tool.
- [![this video](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FB3TANDwD_eo%3Fsi%3DRlQJCayDaLCZ52v0)](https://youtu.be/B3TANDwD_eo?si=RlQJCayDaLCZ52v0)
+Watch the video to learn more.
+---
 
 ### Steps 
 `1.` Choose environment: OS, Service, or Protocol-specific  
