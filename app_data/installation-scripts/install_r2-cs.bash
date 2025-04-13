@@ -43,11 +43,6 @@ sudo apt-get install -y terminator git
 
 if validate_python_version; then
     install_r2
-    {
-      echo ""
-      echo "# Alias for R2-Cheat Sheet"
-      echo "alias r2cs=\"cd $(pwd)/R2-CheatSheet; source r2cs_env/bin/activate && python r2cs.py\""
-    } >> ~/.bashrc
 else
     echo "[!] Failed installing Python. Sorry, your version is too low."
 fi

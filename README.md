@@ -37,8 +37,8 @@ The script will ensure Python is above 3.10. After that, Install Git and Termina
 > curl -L https://github.com/Blind2k/R2-CheatSheet/raw/refs/heads/main/app_data/installation-scripts/install_r2-cs.bash | bash
 
 ## Video instruction
-Watch the video to learn more.
----
+Watch the video to learn how to use this tool.  
+[![R2-CheatSheet - Your Ultimate Pentest Sidekick](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DFjPUjM0hbo4)](https://www.youtube.com/watch?v=FjPUjM0hbo4)
 
 ### Steps 
 `1.` Choose environment: OS, Service, or Protocol-specific  

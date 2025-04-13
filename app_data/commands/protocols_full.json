@@ -26,7 +26,8 @@
     "name": "SSH (22)",
     "standard_port": [22],
     "data": {
-      "SSH: Login": "ssh $USERNAME@$RHOST",
+      "SSH: Login #1": "ssh $USERNAME@$RHOST",
+      "SSH: Login #2": "ssh -oHostkeyAlgorithms=+ssh-rsa  $USERNAME@$@RHOST .",
       "Nmap: SSH Enumeration": "nmap --min-rate 9327 -Pn -p 22 --script ssh2-enum-algos,ssh-hostkey,ssh-auth-methods $RHOST",
       "Hydra: Brute-Force Password": "hydra -l '$USERNAME' -P $PASSWORDS ssh://$RHOST",
       "Patator: SSH Key Brute-Force": "patator ssh_login host=$RHOST 'user=$USERNAME' password=FILE0 0=$PASSWORDS"
@@ -37,7 +38,6 @@
     "standard_port": [23],
     "data": {
       "Telnet: Connect": "telnet $RHOST",
-      "Netcat: Connect" : "",
       "Nmap Telnet scripts": "nmap --min-rate 9327 -Pn -p 23 --script telnet-encryption,telnet-ntlm-info $RHOST",
       "Hydra Telnet": "hydra -l '$USERNAME' -P $PASSWORDS telnet://$RHOST"
     }
